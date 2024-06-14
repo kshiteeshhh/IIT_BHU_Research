@@ -12,7 +12,7 @@ const Navbar = () => {
       </div>
       <div className="flex justify-evenly w-1/2 text-sm">
         <button onClick={() => handleNavigate("")}>HOME</button>
-        <button onClick={() => handleNavigate("")}>MODEL</button>
+        <button onClick={() => handleNavigate("model")}>MODEL</button>
         <button onClick={() => handleNavigate("contact")}>CONTACT</button>
         <button onClick={() => handleNavigate("register")}>SIGN UP</button>
         <button onClick={() => handleNavigate("login")}>LOGIN</button>

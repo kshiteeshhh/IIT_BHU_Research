@@ -5,6 +5,8 @@ import Accuracy from "../images/Accuracy.svg";
 import Vector from "../images/Vector.svg";
 import Results from "../images/Results.svg";
 import mol from "../images/mol.svg";
+import { useLocation } from 'react-router-dom';
+import { useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 const Landing = () => {
@@ -12,6 +14,20 @@ const Landing = () => {
   const handleNavigate = (pageName) => {
     navigate(`/${pageName}`);
   };
+
+
+  const location = useLocation();
+  const isAuthenticated = location.state?.isAuthenticated || false;
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      console.log('User is authenticated');
+      // Perform any additional side effects or actions here
+    } else {
+      console.log('User is not authenticated');
+      // Perform any additional side effects or actions here
+    }
+  }, [isAuthenticated]);
   return (
     <>
       <div className="bg-[#000235]">
@@ -35,12 +51,17 @@ const Landing = () => {
                 </p>
               </div>
               <div className="text-white flex justify-start mt-8">
+
+
+
                 <button
                   className="rounded-full bg-[#065CB8] ml-[5.5rem] h-[4rem] w-[11rem] mr-4"
                   onClick={() => handleNavigate("login")}
                 >
                   LOGIN
                 </button>
+
+
                 <button
                   className="rounded-full border border-[#86CFD0] h-[4rem] w-[11rem] ml-4"
                   onClick={() => handleNavigate("register")}
@@ -127,7 +148,10 @@ const Landing = () => {
           {/* <div className="Seperation2 h-1 w-[40rem] bg-gradient-to-r from-black to-transparent mx-auto"></div> */}
           <div className="w-[30rem] h-[0.1rem] mx-auto bg-gradient-to-l from-black to-black" />
         </div>
-        <Footer />
+        <div className="w-[70rem] mx-auto">
+
+          <Footer />
+        </div>
       </div>
     </>
   );
