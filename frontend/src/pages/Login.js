@@ -6,7 +6,7 @@ import mol2 from "../images/mol2.svg";
 import mol4 from "../images/mol4.svg";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
-
+var isAuthenticated =false;
 const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
@@ -32,20 +32,22 @@ const Login = () => {
       });
       if (response) {
         enqueueSnackbar("Logged in successfully", { variant: "success" });
-        navigate("/");
+        isAuthenticated=true;
+        navigate("/",{ state: { isAuthenticated: true } });
       }
     } catch (error) {
       console.error("There was an error logging in!", error);
       enqueueSnackbar("login failed failed. Please try again.", {
         variant: "error",
       });
+      isAuthenticated=false;
     }
   };
 
   return (
     <div className="bg-[#000235]">
       <div className="relative mx-auto w-[70%]">
-        <Navbar />
+        <Navbar isAuthenticated={isAuthenticated}/>
         <img src={mol2} alt="" className="mt-[4rem] ml-10 absolute" />
         <div className="w-[15rem] h-[15rem] flex-shrink-0 rounded-full opacity-50 bg-[#86CFD0] blur-[5rem] absolute left-[-2rem]"></div>
         <div className="flex flex-col justify-center items-center align-middle my-12">

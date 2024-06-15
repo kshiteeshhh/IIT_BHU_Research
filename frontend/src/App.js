@@ -3,6 +3,7 @@ import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Contact from "./pages/contact";
+import Model from "./pages/model";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/register" element={<Register />} exact />
         <Route path="/login" element={<Login />} exact />
         <Route path="/contact" element={<Contact />} exact />
+        <Route path="/model" element={<Model />} exact />
 
       </Routes>
     </div>
