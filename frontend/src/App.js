@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Contact from "./pages/contact";
 import Model from "./pages/model";
+import './App.css';
 
 function App() {
   return (

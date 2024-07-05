@@ -7,6 +7,7 @@ import Results from "../images/Results.svg";
 import mol from "../images/mol.svg";
 import { useLocation } from 'react-router-dom';
 import { useEffect } from "react";
+import '../App.css'
 
 import { useNavigate } from "react-router-dom";
 const Landing = () => {
@@ -54,25 +55,25 @@ const Landing = () => {
 
 
 
-                <button
+                {/* <button
                   className="rounded-full bg-[#065CB8] ml-[5.5rem] h-[4rem] w-[11rem] mr-4"
                   onClick={() => handleNavigate("login")}
                 >
                   LOGIN
-                </button>
+                </button> */}
 
 
                 <button
-                  className="rounded-full border border-[#86CFD0] h-[4rem] w-[11rem] ml-4"
-                  onClick={() => handleNavigate("register")}
+                  className="rounded-full border border-[#86CFD0] h-[4rem] w-[11rem] ml-[11%] hover:border-[#5b9fa1] hover:bg-[#001535fe]"
+                  onClick={() => handleNavigate("model")}
                 >
-                  SIGN UP
+                  See Our Model
                 </button>
               </div>
             </div>
             <div className="w-[30rem] pr-12">
               <div className="w-[32rem] h-[20rem] flex-shrink-0 rounded-full bg-[#86CFD0] blur-[5rem] absolute left-[50rem] opacity-25"></div>
-              <img className="w-[60rem] h-[25rem]" src={mol} alt="molecule" />
+              <img className=" float w-[60rem] h-[25rem]" src={mol} alt="molecule" />
             </div>
           </div>
         </div>
@@ -118,7 +119,7 @@ const Landing = () => {
             <p className="text-white text-center font-outfit text-xl leading-normal w-[18rem] mx-auto">
               have a better understanding of how our models performs
             </p>
-            <button className="rounded-full bg-[#065CB8] h-[7rem] w-[19rem] text-bold text-white font-outfit text-xl mx-auto mt-8">
+            <button className="rounded-full hover:bg-[#067ab8] bg-[#065CB8] h-[7rem] w-[19rem] text-bold text-white font-outfit text-xl mx-auto mt-8">
               <p className=" tracking-[0.5rem]">CHECK PAST</p>
               <p className=" tracking-[0.5rem]">RESULTS</p>
             </button>
@@ -137,7 +138,7 @@ const Landing = () => {
             </div>
             <button
               type="button"
-              className="text-white bg-[#000] focus:outline-none rounded-full text-sm
+              className="text-white hover:bg-[#001535fe] bg-[#000] focus:outline-none rounded-full text-sm
             text-center font-outfit font-bold tracking-[3.4px] uppercase w-[11rem] h-[3rem] mx-auto"
             >
               GET STARTED
