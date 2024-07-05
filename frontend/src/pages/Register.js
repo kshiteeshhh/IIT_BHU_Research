@@ -7,6 +7,7 @@ import mol2 from "../images/mol2.svg";
 import mol3 from "../images/mol3.svg";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import '../App.css'
 
 const Register = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -52,7 +53,7 @@ const Register = () => {
     <div className="bg-[#000235]">
       <div className="relative w-[70%] mx-auto">
         <Navbar />
-        <img src={mol2} alt="" className="mt-[4rem] ml-10 absolute" />
+        <img src={mol2} alt="" className="float mt-[4rem] ml-10 absolute" />
         <div className="w-[15rem] h-[15rem] flex-shrink-0 opacity-50 rounded-full bg-[#86CFD0] blur-[5rem] absolute left-[-2rem]"></div>
         <div className="flex flex-col justify-center items-center align-middle my-12">
           <div className="w-[22rem] ml-9 text-white font-[Outfit] text-[2.1rem] font-bold tracking-[0.5rem] mb-9">
@@ -93,7 +94,7 @@ const Register = () => {
               <img
                 src={emailsvg}
                 alt="Email Icon"
-                className="w-8 h-6 ml-[-0.14rem] text-gray-500 opacity-50"
+                className="float w-8 h-6 ml-[-0.14rem] text-gray-500 opacity-50"
               />
               <input
                 type="email"
@@ -146,7 +147,7 @@ const Register = () => {
             </button>
           </form>
         </div>
-        <img src={mol3} alt="" className="ml-[55rem] bottom-[20rem] absolute" />
+        <img src={mol3} alt="" className="float ml-[55rem] bottom-[20rem] absolute" />
         <div className="w-[15rem] h-[15rem] flex-shrink-0 rounded-full opacity-50 bg-[#86CFD0] blur-[5rem] absolute right-0 bottom-[15rem]"></div>
         <div className="w-[30rem] h-[0.1rem] mx-auto bg-gradient-to-l from-black to-black" />
         <Footer />

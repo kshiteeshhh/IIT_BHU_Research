@@ -1,1 +1,47 @@
 /* write your css here */
+.loader {
+  border: 0.3125rem solid #f3f3f3; /* 5px */
+  border-radius: 50%;
+  border-top: 0.3125rem solid #3498db; /* 5px */
+  width: 1.5625rem; /* 25px */
+  height: 1.5625rem; /* 25px */
+  animation: spin 2s linear infinite;
+  position: fixed;
+  top: 53.5%;
+  left: 67%;
+  transform: translate(-50%, -50%);
+}
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes spin1 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .spin-smooth {
+    animation: spin1 10s linear infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
