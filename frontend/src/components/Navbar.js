@@ -1,8 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSnackbar } from "notistack";
 const Navbar = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const handleNavigate = (pageName) => {
+    if (pageName === "model" && !sessionStorage.getItem("LoggedInUser")) {
+      enqueueSnackbar("Please login first to use the services", {
+        variant: "error",
+      });
+      return;
+    }
     navigate(`/${pageName}`);
   };
   return (
