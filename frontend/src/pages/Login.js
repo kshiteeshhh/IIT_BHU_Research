@@ -6,8 +6,8 @@ import mol2 from "../images/mol2.svg";
 import mol4 from "../images/mol4.svg";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
-import '../App.css';
-var isAuthenticated =false;
+import "../App.css";
+var isAuthenticated = false;
 const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
@@ -33,22 +33,23 @@ const Login = () => {
       });
       if (response) {
         enqueueSnackbar("Logged in successfully", { variant: "success" });
-        isAuthenticated=true;
-        navigate("/",{ state: { isAuthenticated: true } });
+        isAuthenticated = true;
+        sessionStorage.setItem("LoggedInUser", formData.username);
+        navigate("/", { state: { isAuthenticated: true } });
       }
     } catch (error) {
       console.error("There was an error logging in!", error);
       enqueueSnackbar("login failed failed. Please try again.", {
         variant: "error",
       });
-      isAuthenticated=false;
+      isAuthenticated = false;
     }
   };
 
   return (
     <div className="bg-[#000235]">
       <div className="relative mx-auto w-[70%]">
-        <Navbar isAuthenticated={isAuthenticated}/>
+        <Navbar isAuthenticated={isAuthenticated} />
         <img src={mol2} alt="" className=" float mt-[4rem] ml-10 absolute" />
         <div className="w-[15rem] h-[15rem] flex-shrink-0 rounded-full opacity-50 bg-[#86CFD0] blur-[5rem] absolute left-[-2rem]"></div>
         <div className="flex flex-col justify-center items-center align-middle my-12">
@@ -120,7 +121,11 @@ const Login = () => {
             </button>
           </form>
         </div>
-        <img src={mol4} alt="" className=" float ml-[55rem] bottom-[20rem] absolute" />
+        <img
+          src={mol4}
+          alt=""
+          className=" float ml-[55rem] bottom-[20rem] absolute"
+        />
         <div className="w-[15rem] h-[15rem] flex-shrink-0 opacity-50 rounded-full bg-[#86CFD0] blur-[5rem] absolute right-0 bottom-[15rem]"></div>
         <div className="w-[30rem] h-[0.1rem] mx-auto bg-gradient-to-l from-black to-black" />
         <Footer />

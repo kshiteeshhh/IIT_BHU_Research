@@ -5,27 +5,34 @@ import Accuracy from "../images/Accuracy.svg";
 import Vector from "../images/Vector.svg";
 import Results from "../images/Results.svg";
 import mol from "../images/mol.svg";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import '../App.css'
+import { useSnackbar } from "notistack";
+import "../App.css";
 
 import { useNavigate } from "react-router-dom";
 const Landing = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const handleNavigate = (pageName) => {
+    if (pageName === "model" && !sessionStorage.getItem("LoggedInUser")) {
+      enqueueSnackbar("Please login first to use the services", {
+        variant: "error",
+      });
+      return;
+    }
     navigate(`/${pageName}`);
   };
-
 
   const location = useLocation();
   const isAuthenticated = location.state?.isAuthenticated || false;
 
   useEffect(() => {
     if (isAuthenticated) {
-      console.log('User is authenticated');
+      console.log("User is authenticated");
       // Perform any additional side effects or actions here
     } else {
-      console.log('User is not authenticated');
+      console.log("User is not authenticated");
       // Perform any additional side effects or actions here
     }
   }, [isAuthenticated]);
@@ -52,16 +59,12 @@ const Landing = () => {
                 </p>
               </div>
               <div className="text-white flex justify-start mt-8">
-
-
-
                 {/* <button
                   className="rounded-full bg-[#065CB8] ml-[5.5rem] h-[4rem] w-[11rem] mr-4"
                   onClick={() => handleNavigate("login")}
                 >
                   LOGIN
                 </button> */}
-
 
                 <button
                   className="rounded-full border border-[#86CFD0] h-[4rem] w-[11rem] ml-[11%] hover:border-[#5b9fa1] hover:bg-[#001535fe]"
@@ -73,7 +76,11 @@ const Landing = () => {
             </div>
             <div className="w-[30rem] pr-12">
               <div className="w-[32rem] h-[20rem] flex-shrink-0 rounded-full bg-[#86CFD0] blur-[5rem] absolute left-[50rem] opacity-25"></div>
-              <img className=" float w-[60rem] h-[25rem]" src={mol} alt="molecule" />
+              <img
+                className=" float w-[60rem] h-[25rem]"
+                src={mol}
+                alt="molecule"
+              />
             </div>
           </div>
         </div>
@@ -150,7 +157,6 @@ const Landing = () => {
           <div className="w-[30rem] h-[0.1rem] mx-auto bg-gradient-to-l from-black to-black" />
         </div>
         <div className="w-[70rem] mx-auto">
-
           <Footer />
         </div>
       </div>
