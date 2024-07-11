@@ -94,7 +94,7 @@ const Register = () => {
               <img
                 src={emailsvg}
                 alt="Email Icon"
-                className="float w-8 h-6 ml-[-0.14rem] text-gray-500 opacity-50"
+                className=" w-8 h-6 ml-[-0.14rem] text-gray-500 opacity-50"
               />
               <input
                 type="email"

@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="flex bg-[#000235] text-white justify-evenly p-5 mt-10">
     
     <div>
-      <p className="font-outfit font-bold">NAME+LOGO</p>
+      <p className="font-outfit font-bold">MAT2Pred</p>
       <div></div>
     </div>
     <div>
