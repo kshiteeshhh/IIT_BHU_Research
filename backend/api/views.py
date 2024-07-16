@@ -181,7 +181,7 @@ def send_contact_email(request):
     """
 
     try:
-        msg = EmailMultiAlternatives(subject, text_content, 'varchasav25@gmail.com', ['varchasav25@gmail.com'])
+        msg = EmailMultiAlternatives(subject, text_content, 'webappmit@gmail.com', ['webappmit@gmail.com'])
         msg.attach_alternative(html_content, "text/html")
         msg.send()
         return JsonResponse({'status': 'Email sent successfully'})
