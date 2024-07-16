@@ -20,7 +20,7 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   });
-
+  const url=process.env.REACT_APP_BASE_URL
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -29,8 +29,9 @@ const Register = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/register/", {
+      const response = await axios.post(`${url}/api/register/`, {
         username: formData.username,
         email: formData.email,
         password: formData.password,

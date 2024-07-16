@@ -38,18 +38,18 @@ function Model() {
 
   useEffect(() => {
     if (!submitted) return; // Exit if not submitted
-
+    const url1=process.env.REACT_APP_BASE_URL
     const fetchData = async () => {
       let url = "";
       switch (currentModal) {
         case "metallic":
-          url = "http://127.0.0.1:8000/api/predict/metal_nonMetal/";
+          url = `${url1}/api/predict/metal_nonMetal/`;
           break;
         case "thermodynamic":
-          url = "http://127.0.0.1:8000/api/predict/thermodynamicStability/";
+          url = `${url1}/api/predict/thermodynamicStability/`;
           break;
         case "bandgap":
-          url = "http://127.0.0.1:8000/api/predict/bandGap/";
+          url = `${url1}/api/predict/bandGap/`;
           break;
         default:
           break;
@@ -196,7 +196,10 @@ function Model() {
             >
               Submit
             </button>
-            {loading && <div className="loader ml-[-10%] mt-[-4.5%]"></div>}
+            <div className="relative">
+
+            {loading && <div className=" absolute loader left-[-7rem] top-[0.5rem] ml-[-50%] mt-[-4.5%]"></div>}
+            </div>
             <button
               onClick={closeModal}
               className="ml-4 bg-red-500 text-white px-4 py-2 rounded-md"

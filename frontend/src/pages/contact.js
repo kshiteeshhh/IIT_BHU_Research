@@ -19,7 +19,7 @@ const Contact = () => {
         e.preventDefault();
         setLoading(true); // Show l
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/send-email/', {
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/send-email/`, {
                 name,
                 email,
                 message
@@ -63,7 +63,7 @@ const Contact = () => {
                                     <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} className="rounded-md w-full md:w-[24.938rem] mt-2 h-[2.875rem] appearance-none border-none focus:outline-none pl-3 focus:shadow-outline bg-zinc-300" placeholder="EMAIL" />
                                     <textarea name="message" value={message} onChange={(e) => setMessage(e.target.value)} cols="30" rows="10" className="w-full md:w-[24.938rem] h-[5.563rem] bg-zinc-300 pl-3 pt-7 mt-2 rounded-md focus:outline-none focus:shadow-outline resize-none" placeholder="MESSAGE"></textarea>
                                     <button type="submit" className="text-white bg-[#000000] focus:outline-none font-medium rounded-full text-sm px-10 py-2.5 mt-2 md:ml-[0.5rem] md:mt-1">Submit</button>
-                                    {loading && <div className="loader"></div>}
+                                    {loading && <div className="loader1"></div>}
                                 </form>
                                 <ToastContainer />
                             </div>

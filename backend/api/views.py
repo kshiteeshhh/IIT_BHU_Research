@@ -16,8 +16,11 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
-
+from django.http import HttpResponse
 User = get_user_model()
+
+def index(request):
+    return HttpResponse("server up and running")
 
 
 class UserCreateView(generics.CreateAPIView):
@@ -181,7 +184,7 @@ def send_contact_email(request):
     """
 
     try:
-        msg = EmailMultiAlternatives(subject, text_content, 'varchasav25@gmail.com', ['varchasav25@gmail.com'])
+        msg = EmailMultiAlternatives(subject, text_content, 'webappmit@gmail.com', ['webappmit@gmail.com'])
         msg.attach_alternative(html_content, "text/html")
         msg.send()
         return JsonResponse({'status': 'Email sent successfully'})
