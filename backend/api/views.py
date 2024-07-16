@@ -16,8 +16,11 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
-
+from django.http import HttpResponse
 User = get_user_model()
+
+def index(request):
+    return HttpResponse("server up and running")
 
 
 class UserCreateView(generics.CreateAPIView):
