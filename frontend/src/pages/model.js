@@ -9,7 +9,13 @@ import image2 from "../images/mol2.svg"; // Adjust the path to your image
 import thermodynamic from "../images/thermodynaimic.png"
 import metallic from "../images/metal.png"
 import bandGap from "../images/bandgap.png"
+import kim1 from "../images/kim1.png"
+import kim2 from "../images/kim2.png"
+import kim3 from "../images/kim3.png"
+
 import '../App.css';
+
+
 Modal.setAppElement("#root");
 
 function Model() {
@@ -75,6 +81,7 @@ function Model() {
     <div className="bg-[#000235] min-h-screen flex flex-col">
       <div className="flex-grow w-[70%] mx-auto">
         <Navbar />
+        
         <div className="space-y-8 mt-10">
           <div
             className=" bg-gradient-to-l from-[#065CB8] to-[#2E2B66]  text-white p-8 rounded-md shadow-lg flex flex-col md:flex-row items-center cursor-pointer"
@@ -172,7 +179,13 @@ function Model() {
             {currentModal === "thermodynamic" && (
               <>
                 We predict the thermodynamic stability of 2D materials by estimating two key properties: Energy above Convex Hull and Formation Energy. Using the Energy above Convex Hull Model, we first train on C2DB data for non-magnetic compounds, featuring formula featurization and selection, followed by training an ExtraTreesRegressor. In the prediction phase, new formulas undergo a similar process to predict the Ehull value. For the Formation Energy Model, we employ a more complex training phase, involving hyperparameter tuning and stacking multiple regressors, with Ridge as the final estimator. The prediction phase also includes formula featurization and model prediction to estimate Hform. Based on the predicted values of Hform and Ehull, we categorize the stability into three levels: low, medium, or high.
-                <img src={thermodynamic} alt="Thermodynamic Stability" />
+                {/* <img src={thermodynamic} alt="Thermodynamic Stability" /> */}
+               
+                <img src={kim2} alt="Thermodynamic Stability" />
+                <img src={kim1} alt="Thermodynamic Stability" />
+                <img src={kim3} alt="Thermodynamic Stability" />
+                
+               
               </>
             )}
             {currentModal === "bandgap" && <>The project aimed at predicting the band gap of 2D materials for semiconducting applications used various machine learning and deep learning models. Among the models tested, the Extra Tree Regressor performed the best in terms of accuracy. This model was developed using the MAGPIE featurization technique, which transformed the chemical formulas into a vector of 154 features.
